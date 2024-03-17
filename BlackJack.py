@@ -1,9 +1,9 @@
 from random import shuffle
 
 
-SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+SUITS = ['hearts', 'diamonds', 'clubs', 'spades']
 RANKS = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11}
-cards_list = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+
 
 class Card:
     def __init__(self, rank, suit):
@@ -116,8 +116,11 @@ class Game:
             print("*" * 30)
             print(f"Game {game_number} of {games_to_play}")
             print("*" * 30)
+            print("-" * 30)
             player_hand.display()
+            print("-" * 30)
             dealer_hand.display()
+            print("-" * 30)
 
             if self.check_winner(player_hand, dealer_hand):
                 continue
@@ -147,14 +150,15 @@ class Game:
 
             if self.check_winner(player_hand, dealer_hand):
                 continue
-
+            print("===" * 10)
             print("Final Results")
             print("Your hand:", player_hand_value)
             print("Dealer's hand:", dealer_hand_value)
+            print("===" * 10)
 
             self.check_winner(player_hand, dealer_hand, True)
 
-        print("\nThanks for playing!")
+        print("\n***********Thanks for playing***********\n")
 
     def check_winner(self, player_hand, dealer_hand, game_over=False):
         if not game_over:
